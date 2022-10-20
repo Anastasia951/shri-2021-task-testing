@@ -1,7 +1,7 @@
 const { assert } = require('chai');
-
-describe('github', async function() {
-    it('Тест, который пройдет', async function() {
+hermione.config.testTimeout(100500)
+describe('github', async function () {
+    it('Тест, который пройдет', async function () {
         await this.browser.url('https://github.com/gemini-testing/hermione');
         await this.browser.assertView('plain', '#readme', {
             compositeImage: true,

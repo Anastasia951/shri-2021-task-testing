@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import '@testing-library/jest-dom'
 import React from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
@@ -6,8 +7,8 @@ import { CartApi, ExampleApi } from '../../src/client/api'
 import { Application } from '../../src/client/Application'
 import { initStore } from '../../src/client/store'
 
-describe('App', () => {
-  it('Should render Application', () => {
+describe('Страницы приложения', () => {
+  it('Приложение рендерится', () => {
     const basename = '/hw/store'
 
     const api = new ExampleApi(basename)
@@ -25,7 +26,7 @@ describe('App', () => {
     expect(container.getElementsByClassName('Application')).toHaveProperty('length', 1)
   })
 
-  it('Header should contain link to Delivery', () => {
+  it('В шапке есть ссылка на страницу доставки', () => {
     const basename = '/hw/store'
 
     const api = new ExampleApi(basename)
@@ -39,15 +40,12 @@ describe('App', () => {
         </Provider>
       </BrowserRouter>
     )
-    render(application);
-    const link = screen.queryByRole('link', {
-      name: 'Delivery'
-    })
-
-    expect(link).toBeTruthy()
+    const { container } = render(application);
+    const linkToHome = container.querySelector(`[href="${basename}/delivery"]`)
+    expect(linkToHome).toBeTruthy()
   })
 
-  it('Header should contain link to Catalog', () => {
+  it('В шапке есть ссылка на страницу каталога', () => {
     const basename = '/hw/store'
 
     const api = new ExampleApi(basename)
@@ -61,15 +59,12 @@ describe('App', () => {
         </Provider>
       </BrowserRouter>
     )
-    render(application);
-    const link = screen.queryByRole('link', {
-      name: 'Catalog'
-    })
-
-    expect(link).toBeTruthy()
+    const { container } = render(application);
+    const linkToHome = container.querySelector(`[href="${basename}/catalog"]`)
+    expect(linkToHome).toBeTruthy()
   })
 
-  it('Header should contain link to Home', () => {
+  it('Название шапки - ссылка на главную страницу', () => {
     const basename = '/hw/store'
 
     const api = new ExampleApi(basename)
@@ -84,14 +79,12 @@ describe('App', () => {
       </BrowserRouter>
     )
     render(application);
-    const link = screen.queryByRole('link', {
-      name: 'Example store'
-    })
-
-    expect(link).toBeTruthy()
+    const { container } = render(application);
+    const logo = container.querySelector(`.Application-Brand`)
+    expect(logo.getAttribute('href')).toBe(`${basename}/`)
   })
 
-  it('Header should contain link to Contacts', () => {
+  it('В шапке есть ссылка на страницу контактов', () => {
     const basename = '/hw/store'
 
     const api = new ExampleApi(basename)
@@ -105,15 +98,12 @@ describe('App', () => {
         </Provider>
       </BrowserRouter>
     )
-    render(application);
-    const link = screen.queryByRole('link', {
-      name: 'Contacts'
-    })
-
-    expect(link).toBeTruthy()
+    const { container } = render(application);
+    const linkToContacts = container.querySelector(`[href="${basename}/contacts"]`)
+    expect(linkToContacts).toBeTruthy()
   })
 
-  it('Header should contain link to Cart', () => {
+  it('В шапке есть ссылка на страницу корзины', () => {
     const basename = '/hw/store'
 
     const api = new ExampleApi(basename)
@@ -128,10 +118,8 @@ describe('App', () => {
       </BrowserRouter>
     )
     render(application);
-    const link = screen.queryByRole('link', {
-      name: /^Cart/
-    })
-
-    expect(link).toBeTruthy()
+    const { container } = render(application);
+    const linkToCart = container.querySelector(`[href="${basename}/cart"]`)
+    expect(linkToCart).toBeTruthy()
   })
 })
