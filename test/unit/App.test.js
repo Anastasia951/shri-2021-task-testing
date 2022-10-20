@@ -7,6 +7,7 @@ import { CartApi, ExampleApi } from '../../src/client/api'
 import { Application } from '../../src/client/Application'
 import { initStore } from '../../src/client/store'
 
+
 describe('Страницы приложения', () => {
   it('Приложение рендерится', () => {
     const basename = '/hw/store'
