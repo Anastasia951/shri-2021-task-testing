@@ -25,11 +25,25 @@ export class MockData {
       color: 'yellow',
     },
   ]
+  async getProducts() {
+    return { data: this.products }
+  }
 
   async getProductById(id) {
-    return this.products.find(product => product.id === id)
+    return { data: this.products.find(product => product.id === id) }
   }
-  async createProduct(product) {
-    this.products.push(product)
+  async checkout(form, cart) {
+    return { data: { id: 1 } }
+  }
+}
+
+export class MockCartApi {
+  cart = {}
+  getState() {
+    return this.cart
+  }
+
+  setState(cart) {
+    this.cart = cart
   }
 }
