@@ -8,7 +8,4 @@ module.exports = {
       }
     }
   },
-  plugins: {
-    'selenium-standalone-runner': true
-  }
 }

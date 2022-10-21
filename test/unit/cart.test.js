@@ -73,7 +73,7 @@ describe('Корзина', () => {
     })
   })
 
-  it('Если корзина пустая, то отображается ссылка на каталог', () => {
+  it('Если корзина пустая, должна отображаться ссылка на каталог товаров', () => {
     const { container } = render(application)
     const link = container.querySelector(`[href="/catalog"]`)
     expect(link).toBeTruthy()
