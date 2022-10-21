@@ -39,33 +39,18 @@ describe('Страницы приложения', () => {
     expect(container.getElementsByClassName('Application')).toHaveProperty('length', 1)
   })
 
-  it('В шапке есть ссылка на страницу доставки', () => {
-    const { container } = render(application);
-    const linkToHome = container.querySelector(`[href="${basename}/delivery"]`)
-    expect(linkToHome).toBeTruthy()
-  })
-
-  it('В шапке есть ссылка на страницу каталога', () => {
+  it('В шапке есть ссылки на страницы магазина', () => {
     const { container } = render(application);
     const linkToHome = container.querySelector(`[href="${basename}/catalog"]`)
-    expect(linkToHome).toBeTruthy()
-  })
-
-  it('Название шапки - ссылка на главную страницу', () => {
-    const { container } = render(application);
+    const linkToDelivery = container.querySelector(`[href="${basename}/delivery"]`)
     const logo = container.querySelector(`.Application-Brand`)
-    expect(logo.getAttribute('href')).toBe(`${basename}/`)
-  })
-
-  it('В шапке есть ссылка на страницу контактов', () => {
-    const { container } = render(application);
     const linkToContacts = container.querySelector(`[href="${basename}/contacts"]`)
-    expect(linkToContacts).toBeTruthy()
-  })
-
-  it('В шапке есть ссылка на страницу корзины', () => {
-    const { container } = render(application);
     const linkToCart = container.querySelector(`[href="${basename}/cart"]`)
+    expect(linkToDelivery).toBeTruthy()
+    expect(linkToHome).toBeTruthy()
+    expect(logo.getAttribute('href')).toBe(`${basename}/`)
+    expect(linkToContacts).toBeTruthy()
     expect(linkToCart).toBeTruthy()
   })
+
 })

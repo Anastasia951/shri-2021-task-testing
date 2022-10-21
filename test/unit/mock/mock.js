@@ -1,25 +1,25 @@
 export class MockData {
   products = [
     {
-      id: '111',
+      id: 111,
       name: 'Good 1',
-      price: '999',
+      price: 999,
       description: 'Some description',
       material: 'iron',
       color: 'violet',
     },
     {
-      id: '222',
+      id: 222,
       name: 'Good 2',
-      price: '888',
+      price: 888,
       description: 'Some description',
       material: 'iron',
       color: 'green',
     },
     {
-      id: '333',
+      id: 333,
       name: 'Good 3',
-      price: '777',
+      price: 777,
       description: 'Some description',
       material: 'iron',
       color: 'yellow',

@@ -3,13 +3,9 @@ import '@testing-library/jest-dom'
 import React from 'react'
 import { Provider } from 'react-redux'
 import { Router } from 'react-router'
-import { CartApi, ExampleApi } from '../../src/client/api'
-import { Application } from '../../src/client/Application'
 import { addToCart, initStore } from '../../src/client/store'
 import { createMemoryHistory } from 'history'
-import { BrowserRouter } from 'react-router-dom'
 import { MockCartApi, MockData } from './mock/mock'
-import events from '@testing-library/user-event';
 import { ProductDetails } from '../../src/client/components/ProductDetails'
 
 
@@ -23,7 +19,7 @@ describe('Корзина', () => {
   let product
   beforeEach(async () => {
     api = new MockData(basename)
-    product = (await api.getProductById('111')).data
+    product = (await api.getProductById(111)).data
     cart = new MockCartApi()
     store = initStore(api, cart)
     history = createMemoryHistory({
