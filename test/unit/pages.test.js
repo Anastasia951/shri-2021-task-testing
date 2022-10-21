@@ -11,16 +11,25 @@ import { createMemoryHistory } from 'history'
 const basename = '/hw/store'
 
 describe('Страницы приложения', () => {
-  it('В магазине есть главная страница', () => {
+  let api
+  let cart
+  let store
+  beforeEach(() => {
+    api = new ExampleApi(basename)
+    cart = new CartApi()
+    store = initStore(api, cart)
+  })
 
+  afterEach(() => {
+    api = null
+    cart = null
+    store = null
+  })
+  it('В магазине есть главная страница', () => {
     const history = createMemoryHistory({
       initialEntries: ['/'],
       initialIndex: 0
     })
-    const api = new ExampleApi(basename)
-    const cart = new CartApi()
-    const store = initStore(api, cart)
-
     const application = (
       <Router history={history}>
         <Provider store={store}>
@@ -38,9 +47,6 @@ describe('Страницы приложения', () => {
       initialEntries: ['/catalog'],
       initialIndex: 0
     })
-    const api = new ExampleApi(basename)
-    const cart = new CartApi()
-    const store = initStore(api, cart)
 
     const application = (
       <Router history={history}>
@@ -58,10 +64,6 @@ describe('Страницы приложения', () => {
       initialEntries: ['/delivery'],
       initialIndex: 0
     })
-    const api = new ExampleApi(basename)
-    const cart = new CartApi()
-    const store = initStore(api, cart)
-
     const application = (
       <Router history={history}>
         <Provider store={store}>
@@ -78,10 +80,6 @@ describe('Страницы приложения', () => {
       initialEntries: ['/contacts'],
       initialIndex: 0
     })
-    const api = new ExampleApi(basename)
-    const cart = new CartApi()
-    const store = initStore(api, cart)
-
     const application = (
       <Router history={history}>
         <Provider store={store}>
