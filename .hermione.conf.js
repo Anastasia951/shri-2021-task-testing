@@ -8,4 +8,7 @@ module.exports = {
       }
     }
   },
+  plugins: {
+    'hermione-selenium-standalone-runner': true
+  },
 }

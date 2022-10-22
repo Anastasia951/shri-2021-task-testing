@@ -1,0 +1,30 @@
+Failed to connect to selenium. Attempts left: 115 
+ connect ECONNREFUSED 127.0.0.1:4444
+21:28:20.985 INFO [LoggingOptions.configureLogEncoding] - Using the system default encoding
+21:28:21.008 INFO [OpenTelemetryTracer.createTracer] - Using OpenTelemetry for tracing
+Failed to connect to selenium. Attempts left: 110 
+ connect ECONNREFUSED 127.0.0.1:4444
+Failed to connect to selenium. Attempts left: 105 
+ connect ECONNREFUSED 127.0.0.1:4444
+21:28:25.980 INFO [NodeOptions.getSessionFactories] - Detected 4 available processors
+21:28:26.171 INFO [NodeOptions.discoverDrivers] - Discovered 4 driver(s)
+21:28:26.225 INFO [NodeOptions.report] - Adding Chrome for {"browserName": "chrome"} 4 times
+21:28:26.228 INFO [NodeOptions.report] - Adding Edge for {"browserName": "MicrosoftEdge"} 4 times
+21:28:26.230 INFO [NodeOptions.report] - Adding Firefox for {"browserName": "firefox"} 4 times
+21:28:26.231 INFO [NodeOptions.report] - Adding Internet Explorer for {"browserName": "internet explorer"} 1 times
+Failed to connect to selenium. Attempts left: 100 
+ connect ECONNREFUSED 127.0.0.1:4444
+21:28:28.370 INFO [Node.<init>] - Binding additional locator mechanisms: relative, name, id
+21:28:28.410 INFO [LocalDistributor.add] - Added node 84597e54-a108-41cc-a06e-5db2ea8b4d84 at http://192.168.1.50:4444. Health check every 120s
+21:28:28.412 INFO [GridModel.setAvailability] - Switching node 84597e54-a108-41cc-a06e-5db2ea8b4d84 (uri: http://192.168.1.50:4444) from DOWN to UP
+21:28:29.642 INFO [Standalone.execute] - Started Selenium Standalone 4.0.0 (revision 3a21814679): http://192.168.1.50:4444
+Selenium started
+21:30:48.574 INFO [LocalDistributor.newSession] - Session request received by the distributor: 
+ [Capabilities {browserName: chrome}]
+Starting ChromeDriver 106.0.5249.61 (511755355844955cd3e264779baf0dd38212a4d0-refs/branch-heads/5249@{#569}) on port 56790
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+21:31:00.660 INFO [ProtocolHandshake.createSession] - Detected dialect: W3C
+21:31:00.930 INFO [LocalDistributor.newSession] - Session created by the distributor. Id: 7e92023641deca0a5a97228c587ed9fc, Caps: Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 106.0.5249.119, chrome: {chromedriverVersion: 106.0.5249.61 (511755355844..., userDataDir: C:\Users\5B3B~1\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:59838}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://192.168.1.50:4444/sess..., se:cdpVersion: 106.0.5249.119, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+21:31:57.087 INFO [LocalSessionMap.lambda$new$0] - Deleted session from local session map, Id: 7e92023641deca0a5a97228c587ed9fc
