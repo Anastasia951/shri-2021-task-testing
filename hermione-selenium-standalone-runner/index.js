@@ -6,7 +6,6 @@ const { delay } = require('rxjs')
 module.exports = (hermione) => {
   let selenium;
   hermione.on(hermione.events.RUNNER_START, async () => {
-    console.log('test');
     const file = fs.openSync('selenium.log', 'w');
 
     selenium = spawn('selenium-standalone', ['start'], {

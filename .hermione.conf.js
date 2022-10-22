@@ -9,6 +9,9 @@ module.exports = {
     }
   },
   plugins: {
+    'html-reporter/hermione': {
+      path: 'hermione-html-report'
+    },
     'hermione-selenium-standalone-runner': true
   },
 }
