@@ -5,7 +5,8 @@
     "start": "nodemon ./src/server/index.ts",
     "test": "jest",
     "build": "webpack --mode=production --node-env=production",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "hermione": "./node_modules/.bin/hermione --retry 2 ./test/hermione --update-refs"
   },
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.19.6",
