@@ -1,14 +1,10 @@
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import React from 'react'
-import { Provider } from 'react-redux'
-import { Router } from 'react-router'
-import { Application } from '../../src/client/Application'
 import { addToCart, initStore } from '../../src/client/store'
 import { createMemoryHistory } from 'history'
 import { MockCartApi, MockData } from './mock/mock'
 import events from '@testing-library/user-event';
-
+import { elementWithHref, renderApplication } from './helpers'
 
 const basename = '/hw/store'
 describe('Корзина', () => {
@@ -25,13 +21,7 @@ describe('Корзина', () => {
       initialEntries: ['/cart'],
       initialIndex: 0
     })
-    application = (
-      <Router history={history}>
-        <Provider store={store}>
-          <Application />
-        </Provider>
-      </Router>
-    )
+    application = renderApplication(store, history)
   })
   afterEach(() => {
     api = null
@@ -75,11 +65,11 @@ describe('Корзина', () => {
 
   it('Если корзина пустая, должна отображаться ссылка на каталог товаров', () => {
     const { container } = render(application)
-    const link = container.querySelector(`[href="/catalog"]`)
+    const link = elementWithHref(container, `/catalog`)
     expect(link).toBeTruthy()
   })
 
-  it('Для каждого товара должны отображаться название, цена, количество , стоимость, а также должна отображаться общая сумма заказа', async () => {
+  it('Для каждого товара должны отображаться название, цена, количество, стоимость, а также должна отображаться общая сумма заказа', async () => {
     const product1 = (await api.getProductById(111)).data
     const product2 = (await api.getProductById(222)).data
 
@@ -114,7 +104,7 @@ describe('Корзина', () => {
     store.dispatch(addToCart(product2))
 
     const { container } = render(application)
-    const cartLink = container.querySelector(`[href="/cart"]`)
+    const cartLink = elementWithHref(container, `/cart`)
 
     expect(cartLink.textContent.endsWith(`(2)`)).toBeTruthy()
   })

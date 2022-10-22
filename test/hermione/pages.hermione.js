@@ -1,5 +1,7 @@
 const { assert } = require('chai');
 hermione.config.testTimeout(100500)
+const basename = '/hw/store'
+
 describe('Страницы', async function () {
   it('В магазине должны быть страницы: главная, каталог, условия доставки, контакты', async function () {
     await this.browser.url('/hw/store/catalog');
@@ -25,4 +27,23 @@ describe('Страницы', async function () {
     const cart = await this.browser.$('.Cart')
     assert.equal(await cart.isDisplayed(), true)
   });
+
+  it("Страницы главная, доставка и контакты имеют статическое содержимое", async function () {
+    await this.browser.setWindowSize(1920, 1080)
+    await this.browser.url(`${basename}/`);
+
+    await this.browser.assertView("home", ".Application", {
+      compositeImage: true,
+    });
+
+    await this.browser.url(`${basename}/delivery`);
+    await this.browser.assertView("delivery", ".Application", {
+      compositeImage: true,
+    });
+
+    await this.browser.url(`${basename}/contacts`);
+    await this.browser.assertView("contacts", ".Application", {
+      compositeImage: true,
+    });
+  })
 });

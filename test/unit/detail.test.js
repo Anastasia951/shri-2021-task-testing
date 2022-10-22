@@ -3,7 +3,7 @@ import '@testing-library/jest-dom'
 import React from 'react'
 import { Provider } from 'react-redux'
 import { Router } from 'react-router'
-import { addToCart, initStore } from '../../src/client/store'
+import { initStore } from '../../src/client/store'
 import { createMemoryHistory } from 'history'
 import { MockCartApi, MockData } from './mock/mock'
 import { ProductDetails } from '../../src/client/components/ProductDetails'
@@ -58,7 +58,7 @@ describe('Корзина', () => {
     expect(addToCartButton).toBeTruthy()
   })
 
-  it('Кнопка добавить в корзину работает', async () => {
+  it('если товар уже добавлен в корзину, повторное нажатие кнопки "добавить в корзину" должно увеличивать его количество', async () => {
     const { container } = render(application)
 
     const button = container.querySelector('.ProductDetails-AddToCart')

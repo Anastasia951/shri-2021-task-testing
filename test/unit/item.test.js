@@ -1,14 +1,9 @@
 import { render, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import React from 'react'
-import { Provider } from 'react-redux'
-import { Router } from 'react-router'
-import { Application } from '../../src/client/Application'
 import { addToCart, initStore } from '../../src/client/store'
 import { createMemoryHistory } from 'history'
 import { MockCartApi, MockData } from './mock/mock'
-import events from '@testing-library/user-event';
-
+import { renderApplication } from './helpers'
 
 const basename = '/hw/store'
 describe('Корзина', () => {
@@ -25,13 +20,7 @@ describe('Корзина', () => {
       initialEntries: ['/catalog'],
       initialIndex: 0
     })
-    application = (
-      <Router history={history}>
-        <Provider store={store}>
-          <Application />
-        </Provider>
-      </Router>
-    )
+    application = renderApplication(store, history)
   })
   afterEach(() => {
     api = null

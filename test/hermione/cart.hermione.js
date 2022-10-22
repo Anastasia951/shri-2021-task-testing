@@ -1,7 +1,7 @@
 const { assert } = require('chai');
 hermione.config.testTimeout(100500)
 describe('Корзина', async function () {
-  it('При перезагрузке каталога сохраняется содержимое', async function () {
+  it('Содержимое корзины должно сохраняться между перезагрузками страницы', async function () {
     await this.browser.url('/hw/store/catalog');
 
     const catalog = await this.browser.$('.Catalog')
