@@ -58,7 +58,7 @@ describe('Корзина', async function () {
     assert.equal(await catalogLink.getAttribute('href'), '/hw/store/catalog')
   });
 
-  it('если товар уже добавлен в корзину, повторное нажатие кнопки "добавить в корзину" должно увеличивать его количество', async function () {
+  it('Если товар уже добавлен в корзину, повторное нажатие кнопки "добавить в корзину" должно увеличивать его количество', async function () {
     await this.browser.url('/hw/store/catalog');
 
     const catalog = await this.browser.$('.Catalog')
